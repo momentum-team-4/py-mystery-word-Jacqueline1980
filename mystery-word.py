@@ -60,41 +60,45 @@ def display_game(attempts):
     return mystery_game_pics[attempts]
 
 
-fileObject = open("words.txt", "r")
-words = fileObject.read().split
+import random 
+#from words import words
+import string
+
+wordFile = open("words.txt", "r")
+words = wordFile.read()
 #print(words)
 
-import random
+word_list = words.split()
+wordFile.close()
+#print(word_list)
 
 lettersGuessed = []
 lettersGuessedList = []
-wordsGuessed = []
-playGame = True
+#playGame = True
 continueGame = "Y"
+attempts = 8
 
 play = input("Let's play Mystery Word. Press ENTER to continue...")
-
-import pdb; pdb.set_trace()
 
 
 def get_word():
     word = random.choice(words)
     return word.upper
-    print(word)
+    #print(words)
 
 def playGame(word):
     secretWord = '_' * len(word)
 
-if playGame:
-    mysteryWordList = list(secretWord)
-    attempts = 8
+    if playGame:
+        mysteryWordList = list(secretWord)
+        attempts <= 8
     for n in mysteryWordList:
         lettersGuessed.append('_')
         print
 
-while True:
-    print("Choose a letter: ")
-    letter = input()
+    while True:
+        print("Choose a letter: ")
+        letter = input()
 
     if letter in lettersGuessed:
         print("You have already guessed this letter, try again.")
@@ -104,8 +108,8 @@ while True:
         lettersGuessed.append(letter)
         if letter in words:
             print("You guessed a letter correctly")
-            if attempts > 0:
-                print("You have " attempts "attempts left")
+        if attempts > 0:
+            print(f"You have {attempts} attempts left")
             
             for i in range(len(words)):
                 if letter == words[i]:

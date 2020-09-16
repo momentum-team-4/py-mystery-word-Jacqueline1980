@@ -12,8 +12,8 @@ wordFile.close()
 
 def get_valid_word(words):
     word = random.choice(words) #choose a random word from the list
-    while '-' in words or ' ' in words:
-        word = random.choice(words)
+    # while '-' in words or ' ' in words:
+    #     word = random.choice(words)
 
     return word.upper()
 
